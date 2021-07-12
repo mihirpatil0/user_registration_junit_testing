@@ -1,0 +1,2 @@
+com/bridgelab/jubituservalidationtesting/JunitTestingUserRegistrationValidation.java
+ com.bridgelab.jubituservalidationtesting.JunitTestingUserRegistrationValidation

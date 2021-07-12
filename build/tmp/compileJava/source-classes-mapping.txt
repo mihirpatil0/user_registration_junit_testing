@@ -1,0 +1,6 @@
+com/bridgelab/junituservalidation/UserDetails.java
+ com.bridgelab.junituservalidation.UserDetails
+com/bridgelab/junituservalidation/UserValidation.java
+ com.bridgelab.junituservalidation.UserValidation
+com/bridgelab/junituservalidation/UserValidationMain.java
+ com.bridgelab.junituservalidation.UserValidationMain
