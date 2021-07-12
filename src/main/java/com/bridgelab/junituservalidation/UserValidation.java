@@ -131,6 +131,33 @@ public class UserValidation
     }
 
     /**
+     * Name : enterPassword.
+     *
+     * Description : Asking user to enter password.
+     *
+     * Algorithm : Checking if entered password follows defined pattern rules or not.
+     * using regex.
+     * must contain 8 characters.
+     *
+     * Modification : First commit 12-July-2021.
+     */
+    public boolean enterPassword(String password)
+    {
+        boolean isTrue = Pattern.compile("^[a-zA-Z0-9]{8}$").matcher(password).matches();
+        if(isTrue == true)
+        {
+            userDetailsObject.setPassword(password);
+        }
+        else
+        {
+            System.err.print("\nWrong Input : Password must be of 8 characters :");
+            System.out.println();
+            enterPassword(password);
+        }
+        return isTrue;
+    }
+
+    /**
      * Name : printAllUserDetails.
      *
      * Description : Printing User Details..

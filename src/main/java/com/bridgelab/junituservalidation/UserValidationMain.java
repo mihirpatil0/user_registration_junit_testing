@@ -34,6 +34,10 @@ public class UserValidationMain
         String mobileNumber = scanner.nextLine();
         userValidationObj.enterMobileNumber(mobileNumber);//end for mobileNumber.
 
+        System.out.print("ENTER PASSWORD : ");
+        String password = scanner.next();
+        userValidationObj.enterPassword(password);//end for password.
+
         userValidationObj.printAllUserDetails();
         scanner.close();
     }

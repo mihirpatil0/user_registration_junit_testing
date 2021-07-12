@@ -132,5 +132,13 @@ public class JunitTestingUserRegistrationValidation
         UserValidation userValidation = new UserValidation();
         boolean isValid = userValidation.enterMobileNumber("9800989340");
         Assertions.assertFalse(isValid);
-    }//end for mobile number validation test case.t 
+    }//end for mobile number validation test case.
+
+    @Test
+    public void givenPassword_whenProper_shouldReturnTrue()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterPassword("Aydbeo09");
+        Assertions.assertTrue(isValid);
+    }//end for password validation test case.
 }
