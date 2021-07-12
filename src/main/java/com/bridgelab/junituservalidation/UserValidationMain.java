@@ -1,5 +1,7 @@
 package com.bridgelab.junituservalidation;
 
+import java.util.Scanner;
+
 /******************************************************************
  * @author mihir
  *
@@ -12,5 +14,15 @@ public class UserValidationMain
 {
     public static void main(String[] args)
     {
+        Scanner scanner = new Scanner(System.in);
+        UserValidation userValidationObj = new UserValidation();
+
+        //Calling the methods:
+        System.out.print("ENTER FIRST NAME : ");
+        String firstName = scanner.next();
+        userValidationObj.enterFirstName(firstName);
+
+        userValidationObj.printAllUserDetails();
+        scanner.close();
     }
 }

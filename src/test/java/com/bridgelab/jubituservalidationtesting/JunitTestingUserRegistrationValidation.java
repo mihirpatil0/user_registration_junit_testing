@@ -1,5 +1,9 @@
 package com.bridgelab.jubituservalidationtesting;
 
+import com.bridgelab.junituservalidation.UserValidation;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 /*******************************************************************
  * @author mihir
  *
@@ -10,5 +14,27 @@ package com.bridgelab.jubituservalidationtesting;
 
 public class JunitTestingUserRegistrationValidation
 {
+    @Test
+    public void givenFirstName_WhenProper_ShouldReturnTrue()
+    {
+        UserValidation userValidationObj = new UserValidation();
+        boolean isValid = userValidationObj.enterFirstName("Mihir");
+        Assertions.assertTrue(isValid);
+    }
 
+    @Test
+    public void givenFirstName_whenShort_shouldReturnFalse()
+    {
+        UserValidation userValidationObj = new UserValidation();
+        boolean isValid = userValidationObj.enterFirstName("M");
+        Assertions.assertFalse(isValid);
+    }
+
+    @Test
+    public void givenFirstName_WhenFistCharacterSmall_ShouldReturnFalse()
+    {
+        UserValidation userValidationObj = new UserValidation();
+        boolean isValid = userValidationObj.enterFirstName("mihir");
+        Assertions.assertFalse(isValid);
+    }//end of first name validation test cases.
 }
