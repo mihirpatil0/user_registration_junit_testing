@@ -75,6 +75,34 @@ public class UserValidation
     }
 
     /**
+     * Name : enterEmailId.
+     *
+     * Description : Asking user to enter Email-Id.
+     *
+     * Algorithm : Checking if entered email-id follows defined pattern rules or not.
+     * using regex.
+     * E.g. abc.xyz@bl.co.in
+     * Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions
+     *
+     * Modification : First commit 12-July-2021.
+     */
+    public boolean enterEmailId(String emailId)
+    {
+        boolean isTrue = Pattern.compile("^[A-Za-z0-9]+([._%+-][A-Za-z0-9]+)*@([A-Za-z0-9]+).([A-Za-z]{2,4})(\\.[A-Za-z]{2,3})?$").matcher(emailId).matches();
+        if(isTrue == true)
+        {
+            userDetailsObject.setEmailid(emailId);
+        }
+        else
+        {
+            System.err.print("\nWrong Input : E.g. abc.xyz@bl.co.in Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions ");
+            System.out.println();
+            return enterEmailId(emailId);
+        }
+        return isTrue;
+    }
+
+    /**
      * Name : printAllUserDetails.
      *
      * Description : Printing User Details..

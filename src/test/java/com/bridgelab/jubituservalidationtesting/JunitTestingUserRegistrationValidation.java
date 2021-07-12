@@ -61,4 +61,44 @@ public class JunitTestingUserRegistrationValidation
         boolean isValid = userValidationObj.enterFirstName("patil");
         Assertions.assertFalse(isValid);
     }//end of last name validation test cases.
+
+    @Test
+    public void givenEmailId_whenProper_shouldReturnTrue()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterEmailId("mihir.patil@gmail.co.in");
+        Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenEmailId_whenOptionalPartMissing_shouldReturnTrue()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterEmailId("mihir@gmail.com");
+        Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenEmailId_whenGivenFirstSpecialCharacter_shouldReturnFalse()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterEmailId("+ihir.patil@gmail.co.in");
+        Assertions.assertFalse(isValid);
+    }
+
+    @Test
+    public void givenEmailId_whenGivenDotAfterWord_shouldReturnFalse()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterEmailId("mihir.@gmail.co.in");
+        Assertions.assertFalse(isValid);
+    }
+
+    @Test
+    public void givenEmailId_whenGivenTdlLengthGraterThanFour_shouldReturnFalse()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterEmailId("mihir.@gmail.commmm");
+        Assertions.assertFalse(isValid);
+    }//end of email validation.
 }

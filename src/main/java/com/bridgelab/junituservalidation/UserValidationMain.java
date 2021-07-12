@@ -24,7 +24,11 @@ public class UserValidationMain
 
         System.out.print("ENTER LAST NAME : ");
         String lastName = scanner.next();
-        userValidationObj.enterFirstName(lastName);
+        userValidationObj.enterFirstName(lastName);//end for lastName.
+
+        System.out.print("ENTER EMAIL-ID : ");
+        String emailId = scanner.next();
+        userValidationObj.enterEmailId(emailId);//end for emailId.
 
         userValidationObj.printAllUserDetails();
         scanner.close();

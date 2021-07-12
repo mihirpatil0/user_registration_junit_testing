@@ -14,6 +14,7 @@ public class UserDetails
 {
     private String firstName;
     private String lastName;
+    private String emailid;
 
     public String getFirstName() {
         return firstName;
@@ -31,11 +32,20 @@ public class UserDetails
         this.lastName = lastName;
     }
 
+    public String getEmailid() {
+        return emailid;
+    }
+
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
+    }
+    
     @Override
     public String toString() {
         return "UserDetails{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", emailid='" + emailid + '\'' +
                 '}';
     }
 }
