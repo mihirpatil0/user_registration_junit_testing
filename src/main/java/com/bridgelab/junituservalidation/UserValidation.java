@@ -103,6 +103,34 @@ public class UserValidation
     }
 
     /**
+     * Name : enterMobileNumber.
+     *
+     * Description : Asking user to enter mobile number.
+     *
+     * Algorithm : Checking if entered mobile number follows defined pattern rules or not.
+     * using regex.
+     * example - 91 9987000000
+     * Rules : country code followed by space and 10 digit number.
+     *
+     * Modification : First commit 12-July-2021.
+     */
+    public boolean enterMobileNumber(String mobileNumber)
+    {
+        boolean isTrue = Pattern.compile("^[0-9]\\d{1,2}\\s[789]\\d{9}$").matcher(mobileNumber).matches();
+        if(isTrue == true)
+        {
+            userDetailsObject.setMobileNumber(mobileNumber);
+        }
+        else
+        {
+            System.err.print("\nWrong Input : Country code followed by space and 10 digit number :");
+            System.out.println();
+            enterMobileNumber(mobileNumber);
+        }
+        return isTrue;
+    }
+
+    /**
      * Name : printAllUserDetails.
      *
      * Description : Printing User Details..

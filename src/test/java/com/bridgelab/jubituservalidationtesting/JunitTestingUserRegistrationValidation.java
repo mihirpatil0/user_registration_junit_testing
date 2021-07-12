@@ -101,4 +101,36 @@ public class JunitTestingUserRegistrationValidation
         boolean isValid = userValidation.enterEmailId("mihir.@gmail.commmm");
         Assertions.assertFalse(isValid);
     }//end of email validation.
+
+    @Test
+    public void givenMobileNumber_whenProper_shouldReturnTrue()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterMobileNumber("91 9899086705");
+        Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenMobileNumber_whenNumberIsLessThanFixedLength_shouldReturnFalse()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterMobileNumber("91 9899086");
+        Assertions.assertFalse(isValid);
+    }
+
+    @Test
+    public void givenMobileNumber_whenNumberIsGreaterThanFixedLength_shouldReturnFalse()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterMobileNumber("91 9899086000000000");
+        Assertions.assertFalse(isValid);
+    }
+
+    @Test
+    public void givenMobileNumber_whenCountryCodeMissing_shouldReturnFalse()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterMobileNumber("9800989340");
+        Assertions.assertFalse(isValid);
+    }//end for mobile number validation test case.t 
 }

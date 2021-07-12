@@ -30,6 +30,10 @@ public class UserValidationMain
         String emailId = scanner.next();
         userValidationObj.enterEmailId(emailId);//end for emailId.
 
+        System.out.print("ENTER PHONE NUMBER : ");
+        String mobileNumber = scanner.nextLine();
+        userValidationObj.enterMobileNumber(mobileNumber);//end for mobileNumber.
+
         userValidationObj.printAllUserDetails();
         scanner.close();
     }
