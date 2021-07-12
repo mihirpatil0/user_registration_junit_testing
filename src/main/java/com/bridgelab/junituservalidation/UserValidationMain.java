@@ -20,7 +20,11 @@ public class UserValidationMain
         //Calling the methods:
         System.out.print("ENTER FIRST NAME : ");
         String firstName = scanner.next();
-        userValidationObj.enterFirstName(firstName);
+        userValidationObj.enterFirstName(firstName);//end for firstname.
+
+        System.out.print("ENTER LAST NAME : ");
+        String lastName = scanner.next();
+        userValidationObj.enterFirstName(lastName);
 
         userValidationObj.printAllUserDetails();
         scanner.close();

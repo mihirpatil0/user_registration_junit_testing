@@ -37,4 +37,28 @@ public class JunitTestingUserRegistrationValidation
         boolean isValid = userValidationObj.enterFirstName("mihir");
         Assertions.assertFalse(isValid);
     }//end of first name validation test cases.
+
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue()
+    {
+        UserValidation userValidationObj = new UserValidation();
+        boolean isValid = userValidationObj.enterFirstName("Patil");
+        Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenLastName_whenShort_shouldReturnFalse()
+    {
+        UserValidation userValidationObj = new UserValidation();
+        boolean isValid = userValidationObj.enterFirstName("Pt");
+        Assertions.assertFalse(isValid);
+    }
+
+    @Test
+    public void givenLastName_WhenFistCharacterSmall_ShouldReturnFalse()
+    {
+        UserValidation userValidationObj = new UserValidation();
+        boolean isValid = userValidationObj.enterFirstName("patil");
+        Assertions.assertFalse(isValid);
+    }//end of last name validation test cases.
 }

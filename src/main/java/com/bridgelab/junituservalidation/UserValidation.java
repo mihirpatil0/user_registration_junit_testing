@@ -48,6 +48,33 @@ public class UserValidation
     }
 
     /**
+     * Name : enterLastName.
+     *
+     * Description : Asking user to enter first name.
+     *
+     * Algorithm : Checking if entered last name follows defined pattern rules or not.
+     * using regex.
+     *
+     * Modification : First commit 12-July-2021.
+     */
+    public boolean enterLastName(String lastName)
+    {
+        //regex first character should be Capital letter and name should have minimum 3 characters.
+        boolean isTrue = Pattern.compile("^[A-Z][A-Z a-z]{2,}$").matcher(lastName).matches();
+        if(isTrue == true)
+        {
+            userDetailsObject.setLastName(lastName);
+        }
+        else
+        {
+            System.err.print("Wrong Input : Fist letter Should be capital and must contains minimum 3 characters :\n");
+            System.out.println();
+            enterFirstName(lastName);
+        }
+        return isTrue;
+    }
+
+    /**
      * Name : printAllUserDetails.
      *
      * Description : Printing User Details..
