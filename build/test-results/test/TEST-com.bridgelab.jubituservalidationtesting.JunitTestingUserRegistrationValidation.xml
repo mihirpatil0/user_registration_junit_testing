@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelab.jubituservalidationtesting.JunitTestingUserRegistrationValidation" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-12T21:03:34" hostname="NARUTO" time="0.022">
+<testsuite name="com.bridgelab.jubituservalidationtesting.JunitTestingUserRegistrationValidation" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-13T18:05:37" hostname="NARUTO" time="0.02">
   <properties/>
-  <testcase name="givenPassword_whenProper_shouldReturnTrue()" classname="com.bridgelab.jubituservalidationtesting.JunitTestingUserRegistrationValidation" time="0.022"/>
+  <testcase name="givenPassword_shouldHaveOneUpperCase_whenMatched_shouldReturnTrue()" classname="com.bridgelab.jubituservalidationtesting.JunitTestingUserRegistrationValidation" time="0.02"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

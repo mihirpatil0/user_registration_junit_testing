@@ -140,5 +140,13 @@ public class JunitTestingUserRegistrationValidation
         UserValidation userValidation = new UserValidation();
         boolean isValid = userValidation.enterPassword("Aydbeo09");
         Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenPassword_shouldHaveOneUpperCase_whenMatched_shouldReturnTrue()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterPassword("AaaMihir");
+        Assertions.assertTrue(isValid);
     }//end for password validation test case.
 }
