@@ -148,5 +148,21 @@ public class JunitTestingUserRegistrationValidation
         UserValidation userValidation = new UserValidation();
         boolean isValid = userValidation.enterPassword("AaaMihir");
         Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenPassword_whenHadAtLeastOneNumericValue_shouldReturnTrue()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterPassword("AaaMihi8");
+        Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenPassword_whenNumericValueIsNotPresent_shouldReturnFalse()
+    {
+        UserValidation userValidation = new UserValidation();
+        boolean isValid = userValidation.enterPassword("Aaa");
+        Assertions.assertTrue(isValid);
     }//end for password validation test case.
 }

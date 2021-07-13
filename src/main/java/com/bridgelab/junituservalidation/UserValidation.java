@@ -138,13 +138,14 @@ public class UserValidation
      * Algorithm : Checking if entered password follows defined pattern rules or not.
      * using regex.
      * must contain 8 characters.
-     * should have atleast one upper case.
+     * should have at least one upper case.
+     * should have at least one numeric value.
      *
      * Modification : First commit 12-July-2021.
      */
     public boolean enterPassword(String password)
     {
-        boolean isTrue = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
+        boolean isTrue = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
         if(isTrue == true)
         {
             userDetailsObject.setPassword(password);
