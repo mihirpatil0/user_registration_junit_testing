@@ -1,2 +1,4 @@
 com/bridgelab/jubituservalidationtesting/JunitTestingUserRegistrationValidation.java
  com.bridgelab.jubituservalidationtesting.JunitTestingUserRegistrationValidation
+com/bridgelab/jubituservalidationtesting/ParameterizedEmailValidation.java
+ com.bridgelab.jubituservalidationtesting.ParameterizedEmailValidation
