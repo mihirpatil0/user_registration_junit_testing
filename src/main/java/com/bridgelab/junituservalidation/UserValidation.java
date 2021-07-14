@@ -33,18 +33,22 @@ public class UserValidation
     public boolean enterFirstName(String firstName)
     {
         //regex first character should be Capital letter and name should have minimum 3 characters.
-        boolean isTrue = Pattern.compile("^[A-Z][A-z a-z]{2,}$").matcher(firstName).matches();
-        if(isTrue == true)
+        try
         {
-            userDetailsObject.setFirstName(firstName);
+            boolean isTrue = Pattern.compile("^[A-Z][A-z a-z]{2,}$").matcher(firstName).matches();
+            if (isTrue == true) {
+                userDetailsObject.setFirstName(firstName);
+            } else {
+                System.err.print("Wrong Input : Fist letter Should be capital and must contains minimum 3 characters :\n");
+                System.out.println();
+                enterFirstName(firstName);
+            }
+            return isTrue;
         }
-        else
+        catch (NullPointerException exception)
         {
-            System.err.print("Wrong Input : Fist letter Should be capital and must contains minimum 3 characters :\n");
-            System.out.println();
-            enterFirstName(firstName);
+            throw new UserValidationException("First name cant not be NULL !");
         }
-        return isTrue;
     }
 
     /**
@@ -60,18 +64,22 @@ public class UserValidation
     public boolean enterLastName(String lastName)
     {
         //regex first character should be Capital letter and name should have minimum 3 characters.
-        boolean isTrue = Pattern.compile("^[A-Z][A-Z a-z]{2,}$").matcher(lastName).matches();
-        if(isTrue == true)
+        try
         {
-            userDetailsObject.setLastName(lastName);
+            boolean isTrue = Pattern.compile("^[A-Z][A-Z a-z]{2,}$").matcher(lastName).matches();
+            if (isTrue == true) {
+                userDetailsObject.setLastName(lastName);
+            } else {
+                System.err.print("Wrong Input : Fist letter Should be capital and must contains minimum 3 characters :\n");
+                System.out.println();
+                enterFirstName(lastName);
+            }
+            return isTrue;
         }
-        else
+        catch (NullPointerException exception)
         {
-            System.err.print("Wrong Input : Fist letter Should be capital and must contains minimum 3 characters :\n");
-            System.out.println();
-            enterFirstName(lastName);
+            throw new UserValidationException("Last name cant not be NULL !");
         }
-        return isTrue;
     }
 
     /**
@@ -88,18 +96,25 @@ public class UserValidation
      */
     public boolean enterEmailId(String emailId)
     {
-        boolean isTrue = Pattern.compile("^[A-Za-z0-9]+([._%+-][A-Za-z0-9]+)*@([A-Za-z0-9]+).([A-Za-z]{2,4})(\\.[A-Za-z]{2,3})?$").matcher(emailId).matches();
-        if(isTrue == true)
+        try
         {
-            userDetailsObject.setEmailid(emailId);
+            boolean isTrue = Pattern.compile("^[A-Za-z0-9]+([._%+-][A-Za-z0-9]+)*@([A-Za-z0-9]+).([A-Za-z]{2,4})(\\.[A-Za-z]{2,3})?$").matcher(emailId).matches();
+            if(isTrue == true)
+            {
+                userDetailsObject.setEmailid(emailId);
+            }
+            else
+            {
+                System.err.print("\nWrong Input : E.g. abc.xyz@bl.co.in Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions ");
+                System.out.println();
+                return enterEmailId(emailId);
+            }
+            return isTrue;
         }
-        else
+        catch (NullPointerException exception)
         {
-            System.err.print("\nWrong Input : E.g. abc.xyz@bl.co.in Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions ");
-            System.out.println();
-            return enterEmailId(emailId);
+            throw new UserValidationException("Email-Id cant not be NULL !");
         }
-        return isTrue;
     }
 
     /**
@@ -116,18 +131,25 @@ public class UserValidation
      */
     public boolean enterMobileNumber(String mobileNumber)
     {
-        boolean isTrue = Pattern.compile("^[0-9]\\d{1,2}\\s[789]\\d{9}$").matcher(mobileNumber).matches();
-        if(isTrue == true)
+        try
         {
-            userDetailsObject.setMobileNumber(mobileNumber);
+            boolean isTrue = Pattern.compile("^[0-9]\\d{1,2}\\s[789]\\d{9}$").matcher(mobileNumber).matches();
+            if(isTrue == true)
+            {
+                userDetailsObject.setMobileNumber(mobileNumber);
+            }
+            else
+            {
+                System.err.print("\nWrong Input : Country code followed by space and 10 digit number :");
+                System.out.println();
+                enterMobileNumber(mobileNumber);
+            }
+            return isTrue;
         }
-        else
+        catch (NullPointerException exception)
         {
-            System.err.print("\nWrong Input : Country code followed by space and 10 digit number :");
-            System.out.println();
-            enterMobileNumber(mobileNumber);
+            throw new UserValidationException("Mobile Number cant not be NULL !");
         }
-        return isTrue;
     }
 
     /**
@@ -146,18 +168,25 @@ public class UserValidation
      */
     public boolean enterPassword(String password)
     {
-        boolean isTrue = Pattern.compile("^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
-        if(isTrue == true)
+        try
         {
-            userDetailsObject.setPassword(password);
+            boolean isTrue = Pattern.compile("^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
+            if(isTrue == true)
+            {
+                userDetailsObject.setPassword(password);
+            }
+            else
+            {
+                System.err.print("\nWrong Input : Password must be of 8 characters :");
+                System.out.println();
+                enterPassword(password);
+            }
+            return isTrue;
         }
-        else
+        catch (NullPointerException exception)
         {
-            System.err.print("\nWrong Input : Password must be of 8 characters :");
-            System.out.println();
-            enterPassword(password);
+            throw new UserValidationException("Password cant not be NULL !");
         }
-        return isTrue;
     }
 
     /**

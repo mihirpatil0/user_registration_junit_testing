@@ -1,8 +1,11 @@
 package com.bridgelab.jubituservalidationtesting;
 
 import com.bridgelab.junituservalidation.UserValidation;
+import com.bridgelab.junituservalidation.UserValidationException;
+import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
 /*******************************************************************
  * @author mihir
@@ -14,12 +17,31 @@ import org.junit.jupiter.api.Test;
 
 public class JunitTestingUserRegistrationValidation
 {
+    @Rule
+    public ExpectedException exceptionRule = ExpectedException.none();
+
     @Test
     public void givenFirstName_WhenProper_ShouldReturnTrue()
     {
         UserValidation userValidationObj = new UserValidation();
         boolean isValid = userValidationObj.enterFirstName("Mihir");
         Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenFirstName_whenNull_shouldReturnCustomizedException()
+    {
+        try
+        {
+            UserValidation userValidationObj = new UserValidation();
+            exceptionRule.expect(UserValidationException.class);
+            exceptionRule.expectMessage("First Name can not be NULL !");
+            boolean isValid = userValidationObj.enterFirstName(null);
+        }
+        catch (UserValidationException userValidationException)
+        {
+
+        }
     }
 
     @Test
@@ -47,6 +69,22 @@ public class JunitTestingUserRegistrationValidation
     }
 
     @Test
+    public void givenLastName_whenNull_shouldReturnCustomizedException()
+    {
+        try
+        {
+            UserValidation userValidationObj = new UserValidation();
+            exceptionRule.expect(UserValidationException.class);
+            exceptionRule.expectMessage("Last Name can not be NULL !");
+            boolean isValid = userValidationObj.enterLastName(null);
+        }
+        catch (UserValidationException userValidationException)
+        {
+
+        }
+    }
+
+    @Test
     public void givenLastName_whenShort_shouldReturnFalse()
     {
         UserValidation userValidationObj = new UserValidation();
@@ -68,6 +106,22 @@ public class JunitTestingUserRegistrationValidation
         UserValidation userValidation = new UserValidation();
         boolean isValid = userValidation.enterEmailId("mihir.patil@gmail.co.in");
         Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenEmailId_whenNull_shouldReturnCustomizedException()
+    {
+        try
+        {
+            UserValidation userValidationObj = new UserValidation();
+            exceptionRule.expect(UserValidationException.class);
+            exceptionRule.expectMessage("Email-Id can not be NULL !");
+            boolean isValid = userValidationObj.enterEmailId(null);
+        }
+        catch (UserValidationException userValidationException)
+        {
+
+        }
     }
 
     @Test
@@ -111,6 +165,22 @@ public class JunitTestingUserRegistrationValidation
     }
 
     @Test
+    public void givenMobileNumber_whenNull_shouldReturnCustomizedException()
+    {
+        try
+        {
+            UserValidation userValidationObj = new UserValidation();
+            exceptionRule.expect(UserValidationException.class);
+            exceptionRule.expectMessage("Mobile Number can not be NULL !");
+            boolean isValid = userValidationObj.enterMobileNumber(null);
+        }
+        catch (UserValidationException userValidationException)
+        {
+
+        }
+    }
+
+    @Test
     public void givenMobileNumber_whenNumberIsLessThanFixedLength_shouldReturnFalse()
     {
         UserValidation userValidation = new UserValidation();
@@ -140,6 +210,22 @@ public class JunitTestingUserRegistrationValidation
         UserValidation userValidation = new UserValidation();
         boolean isValid = userValidation.enterPassword("Aydbeo09");
         Assertions.assertTrue(isValid);
+    }
+
+    @Test
+    public void givenPassword_whenNull_shouldReturnCustomizedException()
+    {
+        try
+        {
+            UserValidation userValidationObj = new UserValidation();
+            exceptionRule.expect(UserValidationException.class);
+            exceptionRule.expectMessage("Password can not be NULL !");
+            boolean isValid = userValidationObj.enterPassword(null);
+        }
+        catch (UserValidationException userValidationException)
+        {
+
+        }
     }
 
     @Test
