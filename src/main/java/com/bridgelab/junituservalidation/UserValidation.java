@@ -28,14 +28,18 @@ public class UserValidation
      * Algorithm : Checking if entered name follows defined pattern rules or not.
      * using regex.
      *
-     * Modification : First commit 12-July-2021.
+     * Modification : Last commit 15-July-2021.
      */
     public boolean enterFirstName(String firstName)
     {
         //regex first character should be Capital letter and name should have minimum 3 characters.
         try
         {
-            boolean isTrue = Pattern.compile("^[A-Z][A-z a-z]{2,}$").matcher(firstName).matches();
+            //Lambda Expression.
+            IUserValidator validator = (pattern, value) -> Pattern.compile(pattern).matcher(value).matches();
+            String pattern = "^[A-Z][A-z a-z]{2,}$";
+            boolean isTrue = validator.validate(pattern,firstName);
+            IUserValidator.printBoolean(pattern,firstName,"enterFirstName",validator);
             if (isTrue == true) {
                 userDetailsObject.setFirstName(firstName);
             } else {
@@ -59,14 +63,18 @@ public class UserValidation
      * Algorithm : Checking if entered last name follows defined pattern rules or not.
      * using regex.
      *
-     * Modification : First commit 12-July-2021.
+     * Modification : Last commit 15-July-2021.
      */
     public boolean enterLastName(String lastName)
     {
         //regex first character should be Capital letter and name should have minimum 3 characters.
         try
         {
-            boolean isTrue = Pattern.compile("^[A-Z][A-Z a-z]{2,}$").matcher(lastName).matches();
+            //Lambda Expression.
+            IUserValidator validator = (pattern, value) -> Pattern.compile(pattern).matcher(value).matches();
+            String pattern = "^[A-Z][A-Z a-z]{2,}$";
+            boolean isTrue = validator.validate(pattern,lastName);
+            IUserValidator.printBoolean(pattern,lastName,"enterLastName",validator);
             if (isTrue == true) {
                 userDetailsObject.setLastName(lastName);
             } else {
@@ -92,13 +100,17 @@ public class UserValidation
      * E.g. abc.xyz@bl.co.in
      * Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions
      *
-     * Modification : First commit 12-July-2021.
+     * Modification : Last commit 15-July-2021.
      */
     public boolean enterEmailId(String emailId)
     {
         try
         {
-            boolean isTrue = Pattern.compile("^[A-Za-z0-9]+([._%+-][A-Za-z0-9]+)*@([A-Za-z0-9]+).([A-Za-z]{2,4})(\\.[A-Za-z]{2,3})?$").matcher(emailId).matches();
+            //Lambda Expression.
+            IUserValidator validator = (pattern, value) -> Pattern.compile(pattern).matcher(value).matches();
+            String pattern = "^[A-Za-z0-9]+([._%+-][A-Za-z0-9]+)*@([A-Za-z0-9]+).([A-Za-z]{2,4})(\\.[A-Za-z]{2,3})?$";
+            boolean isTrue = validator.validate(pattern,emailId);
+            IUserValidator.printBoolean(pattern,emailId,"enterEmailId",validator);
             if(isTrue == true)
             {
                 userDetailsObject.setEmailid(emailId);
@@ -127,13 +139,17 @@ public class UserValidation
      * example - 91 9987000000
      * Rules : country code followed by space and 10 digit number.
      *
-     * Modification : First commit 12-July-2021.
+     * Modification : Last commit 15-July-2021.
      */
     public boolean enterMobileNumber(String mobileNumber)
     {
         try
         {
-            boolean isTrue = Pattern.compile("^[0-9]\\d{1,2}\\s[789]\\d{9}$").matcher(mobileNumber).matches();
+            //Lambda Expression.
+            IUserValidator validator = (pattern, value) -> Pattern.compile(pattern).matcher(value).matches();
+            String pattern = "^[0-9]\\d{1,2}\\s[789]\\d{9}$";
+            boolean isTrue = validator.validate(pattern,mobileNumber);
+            IUserValidator.printBoolean(pattern,mobileNumber,"enterMobileNumber",validator);
             if(isTrue == true)
             {
                 userDetailsObject.setMobileNumber(mobileNumber);
@@ -164,13 +180,17 @@ public class UserValidation
      * should have at least one numeric value.
      * should have exactly one special character.
      *
-     * Modification : First commit 12-July-2021.
+     * Modification : Last commit 15-July-2021.
      */
     public boolean enterPassword(String password)
     {
         try
         {
-            boolean isTrue = Pattern.compile("^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
+            //Lambda Expression.
+            IUserValidator validator = (pattern, value) -> Pattern.compile(pattern).matcher(value).matches();
+            String pattern = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]).{8,20}$";
+            boolean isTrue = validator.validate(pattern,password);
+            IUserValidator.printBoolean(pattern,password,"enterPassword",validator);
             if(isTrue == true)
             {
                 userDetailsObject.setPassword(password);
